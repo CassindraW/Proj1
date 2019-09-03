@@ -1,1 +1,33 @@
-project 1 test
+def main():
+	f = open("read.txt", "r")
+	file = str(f.readline())
+	leftPad = int(input("Left Padding: "))
+	rightPad = int(input("Right Padding: "))
+	marginSize(leftPad, rightPad, file)
+	
+
+#assuming every line has max 5 numbers
+def marginSize(l, r, f):
+	length = len(f)             #get the length of the file
+	fList = f.split(" ")        #split the finle into a list
+	p = 0                       
+	for i in range(len(fList)): #itterate over the new list
+		if l > 0 :                #makes sure the margin length > 0
+			for k in range(l):      #prints left margins
+				print(" ", end=" ")
+		else :
+			print("Please use a number greater than 0")
+			break
+		for h in range(10-(l+r)): #prints items in file
+			print(fList[int(p)], end=" ") 
+			p+=1
+		if r > 0 :  
+			for g in range(r):      #prints right margins
+				print(" ", end=" ")
+		else :
+			print("Please use a number greater than 0")
+			break
+		print("\n")	
+
+if __name__ == "__main__":
+	main()
